@@ -1,6 +1,6 @@
 # SPATIAL DATA
 
-This project implements an **R-Tree index** with **bulk loading** and supports **spatial queries** including **Range Query** and **k-Nearest Neighbor (kNN) Query**. It was developed as part of the **MΥΕ041 - ΠΛΕ081: Διαχείριση Σύνθετων Δεδομένων (Δ07: Spatial Data)** course at the **University of Ioannina**. The implementation constructs an **R-Tree** from polygonal object data using **Z-order (Morton) codes** and performs spatial queries efficiently.
+This project implements an **R-Tree index** with **bulk loading** and supports **spatial queries** including **Range Query** and **k-Nearest Neighbor (kNN) Query**. It was developed as part of the **MΥΕ041 - ΠΛΕ081: Διαχείριση Σύνθετων Δεδομένων** course at the **University of Ioannina**. The implementation constructs an **R-Tree** from polygonal object data using **Z-order (Morton) codes** and performs spatial queries efficiently.
 
 ---
 
