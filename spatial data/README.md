@@ -50,7 +50,7 @@ This project focuses on **spatial indexing and querying**:
 ## PROJECT STRUCTURE
 
 ```
-spatial-rtree/
+spatial-data/
 │── README.md
 │
 ├── src/
@@ -185,7 +185,7 @@ python src/knn_query.py data/Rtree.txt data/NNqueries.txt 5 > output/knn_results
 
 ---
 
-## ✅ Testing
+## TESTING
 
 - **Visual Check:** Compare returned object IDs with manual small examples.
 - **Performance Test:** Run queries on large datasets to verify efficient pruning.
@@ -202,5 +202,5 @@ See the [LICENSE](LICENSE) file for details.
 ## CONTACT
 
 **Christos Gkovaris**  
-University of Ioannina – Computer Engineering & Informatics  
+University of Ioannina – Computer Science and Engineering
 [GitHub](https://github.com/ChristosGkovaris)
