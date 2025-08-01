@@ -172,7 +172,6 @@ output/groupby.tsv
 
 - **Manual test:** Compare outputs with expected relational algebra results.  
 - **Visual check:** Ensure duplicates are removed where needed.  
-- **Optional:** Create a `tests/` folder for unit tests of each operator.
 
 ---
 
