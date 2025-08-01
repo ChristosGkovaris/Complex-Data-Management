@@ -40,7 +40,7 @@ on a different **aspect of data management**, covering relational algebra, spati
 - Efficient tree traversal with pruning
 - Generates `Rtree.txt` and query results
 
-**Folder:** `spatial-rtree/`  
+**Folder:** `spatial-data/`  
 **Main Scripts:**  
 - `src/rtree_builder.py` (build tree)  
 - `src/range_query.py` (range queries)  
@@ -66,9 +66,9 @@ using various **indexing methods**.
 **Key Features:**
 - Signature-based filtering for fast containment queries
 - Inverted file structures for both set and ranking queries
-- Generates `sigfile.txt`, `invfile.txt`, `invfileocc.txt`
+- Generates `sigfile.txt`, `invfile.txt`, `invfileocc.txt`, `bitslice.txt`
 
-**Folder:** `transaction-queries/`  
+**Folder:** `total-data-management/`  
 **Main Scripts:**  
 - `src/containment_queries.py`  
 - `src/relevance_queries.py`
@@ -86,6 +86,4 @@ See the respective `LICENSE` files for details.
 
 **Christos Gkovaris**  
 University of Ioannina – Computer Science and Engineering
-[GitHub](https://github.com/ChristosGkovaris)
-University of Ioannina – Computer Engineering & Informatics  
 [GitHub](https://github.com/ChristosGkovaris)
