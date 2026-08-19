@@ -1,140 +1,194 @@
 # COMPLEX DATA MANAGEMENT
 
-This repository contains three projects developed as part of the **MΥΕ041 – Complex Data Management** course at the **University of Ioannina**.  
-Each project explores a different aspect of advanced data management, including relational operators, spatial indexing, and transactional query processing.
+This repository contains three **Python projects** covering relational query processing, spatial indexing, and transactional set-data retrieval. The projects were developed as part of the **MΥΕ041 - Complex Data Management** course at the **University of Ioannina**.
 
 ---
 
 ## TABLE OF CONTENTS
+
 1. [Overview](#overview)
-2. [Project 1 – Relational Operators](#project-1--relational-operators)
-3. [Project 2 – Spatial Data](#project-2--spatial-data)
-4. [Project 3 – Total Data Management](#project-3--total-data-management)
-5. [Installation](#installation)
-6. [Usage](#usage)
-7. [License](#license)
-8. [Contact](#contact)
+2. [Tech Stack](#tech-stack)
+3. [Features](#features)
+4. [Architecture](#architecture)
+5. [Project Structure](#project-structure)
+6. [Algorithms Implemented](#algorithms-implemented)
+7. [Installation](#installation)
+8. [Usage](#usage)
+9. [Contributors](#contributors)
+10. [License](#license)
+11. [Contact](#contact)
 
 ---
 
 ## OVERVIEW
 
-This repository includes three standalone implementations that demonstrate core principles of complex data management. The projects cover relational algebra processing, spatial indexing through R-Trees, and transactional indexing for containment & relevance queries.
+The repository consists of three independent assignments focused on the implementation of data-management algorithms and indexing structures.
 
-Each project includes Python scripts, example datasets, and output files generated during execution.
+The projects cover:
 
----
+- Relational algebra operators using streaming and merge-based processing
+- Spatial indexing with R-Trees, Minimum Bounding Rectangles, and Z-order bulk loading
+- Range and k-nearest-neighbor spatial queries
+- Transaction containment queries using bitmap and inverted indexes
+- Relevance queries using occurrence-based scoring and inverted indexes
 
-## PROJECT 1 – RELATIONAL OPERATORS
-
-**Goal:** Implement essential **relational algebra operators** using efficient **merge-based algorithms**.
-
-### **Implemented Operators**
-- Merge-Join  
-- Union  
-- Intersection  
-- Set Difference  
-- Group-By with Sum  
-
-### **Key Features**
-- One-pass merge algorithms for large dataset compatibility  
-- Duplicate elimination through sorted streams  
-- Lightweight in-memory grouping  
-- Outputs stored as `.tsv` files  
-
-**Folder:** `src/relational-operators/`  
-**Main Script:** `src/relational_operators.py`
+Each assignment is implemented independently and includes its own source code and documentation.
 
 ---
 
-## PROJECT 2 – SPATIAL DATA
+## TECH STACK
 
-**Goal:** Construct an **R-Tree spatial index** using **bulk loading**, and evaluate spatial queries.
-
-### **Implemented Queries**
-- Range Queries (window queries)  
-- k-Nearest Neighbors (kNN)  
-
-### **Key Features**
-- Bulk loading with Z-order (Morton) encoding  
-- Node capacity rules (min 8, max 20 entries)  
-- Efficient tree traversal with pruning  
-- Produces `Rtree.txt` and result files  
-
-**Folder:** `src/spatial-data/`  
-**Main Scripts:**  
-- `src/rtree_builder.py`  
-- `src/range_query.py`  
-- `src/knn_query.py`
+- **Language:** Python
+- **Data Processing:** File-based datasets, in-memory data structures
+- **Spatial Indexing:** R-Tree, Minimum Bounding Rectangles, Z-order
+- **Query Processing:** Merge-based operators, containment queries, relevance ranking
+- **Indexing:** Signature files, bitslice signatures, inverted indexes
+- **Python Libraries:** Standard Library, `pymorton`
 
 ---
 
-## PROJECT 3 – TOTAL DATA MANAGEMENT
+## FEATURES
 
-**Goal:** Process **containment** and **relevance** queries on transactional datasets  
-using multiple **indexing techniques**.
+- **Relational Data Processing**
+  - Merge-Join
+  - Union
+  - Intersection
+  - Set Difference
+  - Group-By with Sum aggregation
 
-### **Containment Queries**
-- Naive Sequential Scan  
-- Signature File  
-- Bitslice Signature File  
-- Inverted File  
+- **Spatial Data Processing**
+  - R-Tree construction through bulk loading
+  - Minimum Bounding Rectangle computation
+  - Z-order spatial sorting
+  - Range queries
+  - k-nearest-neighbor queries
 
-### **Relevance Queries**
-- Naive TF×IDF ranking  
-- Inverted Index–based ranking  
+- **Transactional Data Processing**
+  - Containment queries
+  - Exact signature files
+  - Bitslice signature files
+  - Inverted indexes
+  - Relevance-based transaction ranking
 
-### **Key Features**
-- Signature-based filtering  
-- Inverted index construction for both set membership and ranking  
-- Generates:  
-  - `sigfile.txt`  
-  - `bitslice.txt`  
-  - `invfile.txt`  
-  - `invfileocc.txt`  
+---
 
-**Folder:** `src/total-data-management/`  
-**Main Scripts:**  
-- `src/containment_queries.py`  
-- `src/relevance_queries.py`
+## ARCHITECTURE
+
+The repository is organized as three independent command-line projects.
+
+Each assignment separates a specific data-management problem from the others:
+
+- **Assignment 1** processes relational data using sequential file access and merge-based algorithms.
+- **Assignment 2** constructs a persistent R-Tree representation and uses it for spatial query processing.
+- **Assignment 3** builds alternative indexing structures over transactional data and evaluates containment and relevance queries.
+
+The implementations use explicit data structures and algorithms rather than database-management frameworks.
+
+---
+
+## PROJECT STRUCTURE
+
+```text
+.
+├── assignment-1-relational-operators/
+│   ├── relational_operators.py
+│   └── README.md
+│
+├── assignment-2-spatial-data/
+│   ├── rtree_builder.py
+│   ├── range_query.py
+│   ├── knn_query.py
+│   └── README.md
+│
+├── assignment-3-set-data/
+│   ├── containment_queries.py
+│   ├── relevance_queries.py
+│   └── README.md
+│
+└── README.md
+```
+
+---
+
+## ALGORITHMS IMPLEMENTED
+
+### Relational Operators
+
+- Merge-Join with buffered matching tuples
+- Merge-based Union
+- Merge-based Intersection
+- Merge-based Set Difference
+- Sort-based Group-By with Sum aggregation
+
+### Spatial Data
+
+- Minimum Bounding Rectangle computation
+- Z-order spatial ordering
+- Bottom-up R-Tree bulk loading
+- Recursive R-Tree range search
+- Best-first incremental kNN search using a priority queue
+
+### Transactional Set Data
+
+- Naive containment search
+- Exact signature file containment
+- Bitslice signature containment
+- Inverted-index containment
+- Naive relevance ranking
+- Inverted-index relevance ranking
 
 ---
 
 ## INSTALLATION
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/ChristosGkovaris/Complex-Data-Management.git
-cd Complex-Data-Management
+git clone <repository-url>
+cd <repository-directory>
 ```
-2. Ensure you have Python 3.8+ installed.
-3. Install any required dependencies (if included in requirements):
+
+2. Ensure Python is installed.
+
+3. Install `pymorton` for the spatial-data assignment:
+
 ```bash
-pip install -r requirements.txt
+pip install pymorton
 ```
+
+The remaining implementations use Python Standard Library modules.
 
 ---
 
 ## USAGE
 
-1. Navigate to the folder of the project you want to run.
-2. Execute the corresponding Python script.
-3. View the output files generated in the same directory.
-4. Modify parameters or datasets to explore different scenarios.
-5. Use this repository as a reference for relational, spatial, and transactional indexing techniques.
+Each assignment is executed independently from the command line.
+
+Refer to the corresponding assignment README for:
+
+- Required input files
+- Command-line arguments
+- Generated output files
+- Algorithm-specific execution instructions
+
+---
+
+## CONTRIBUTORS
+
+- **Christos Gkovaris** — GitHub: [ChristosGkovaris](https://github.com/ChristosGkovaris)
 
 ---
 
 ## LICENSE
 
-All projects are released under the **MIT License**.
+No formal software license is included in the provided project files.
 
-See the `LICENSE` file for more details.
+This repository contains academic projects developed as part of the **MΥΕ041 - Complex Data Management** course at the **University of Ioannina**.
 
 ---
 
 ## CONTACT
 
 **Christos Gkovaris**  
-University of Ioannina – Computer Science and Engineering  
-GitHub: https://github.com/ChristosGkovaris
+Computer Science and Engineering  
+University of Ioannina  
